@@ -1,3 +1,2 @@
-spotted.io
-==========
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/pric/spotted.io?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+# connected-board
+An interactive white board connected to socket.io!
