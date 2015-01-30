@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  script.
+    $(document).ready(function(){
+      $('#joinBtn').click(function(){
+      window.location.href ="/lobby/"+$('#lobbyIn').val();
+      });
+    });
+    
+  div#homeBlock
+    h1= "Welcome to Interactive-Board"
+    p Please enter the title of the lobby you want to join!
+    input(name="lobby" onSubmit="return process();")#lobbyIn
+    input(type="button" value="Join!")#joinBtn

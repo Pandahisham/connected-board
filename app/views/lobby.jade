@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  script(src="http://localhost:3001/socket.io/socket.io.js")
+  script(src="/lib/renderEngine/fadeEngine.js")
+  script(src="/js/lobby.js")
+  
+  div#container
+    h1= title
+    div#spots
