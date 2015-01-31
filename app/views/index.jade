@@ -1,15 +1,12 @@
 extends layout
 
 block content
-  script.
-    $(document).ready(function(){
-      $('#joinBtn').click(function(){
-      window.location.href ="/lobby/"+$('#lobbyIn').val();
-      });
-    });
+  script(src="http://localhost:3001/socket.io/socket.io.js")
+  script(src="/components/paper/dist/paper-full.js")
+  
+  script(type="text/paperscript" canvas="canvas" src="/js/board.js")
     
-  div#homeBlock
-    h1= "Welcome to Interactive-Board"
-    p Please enter the title of the lobby you want to join!
-    input(name="lobby" onSubmit="return process();")#lobbyIn
-    input(type="button" value="Join!")#joinBtn
+  div#container
+    h1= "Collaborative board!"
+    div.canvas
+      canvas(id="canvas" width="600px" height="600px" resize="true" style='border: 1px solid black;')

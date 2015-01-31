@@ -18,19 +18,16 @@ var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
 io.on('connection', function (socket) {
-  var lobbyId = socket.handshake.query.lobbyId;
-  socket.join(lobbyId);
+  socket.on('startDrawing', function (data) {
+    io.sockets.emit('startDrawing', {uid: data.uid, point: data.point});
+  });
 
-  socket.emit('message', "Salut");
+  socket.on('drawing', function(data){
+    io.sockets.emit('drawing', {uid: data.uid, point: data.point});
+  });
 
-  socket.on('post', function(data, fn){
-    var message = data.message;
-
-    mongoose.model('Lobby').findOneAndUpdate({_id:lobbyId}, {$push: {posts:{message:message}}}, function(err,model){
-      if(!err){
-        socket.broadcast.to(lobbyId).emit('message', {message:message});
-      }
-    });
+  socket.on('stopDrawing', function (data) {
+    io.sockets.emit('stopDrawing', {uid: data.uid});
   });
 });
 
