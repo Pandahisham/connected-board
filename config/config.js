@@ -6,31 +6,25 @@ var config = {
   development: {
     root: rootPath,
     app: {
-      name: 'spotted-io'
+      name: 'connected-board'
     },
-    port: 3000,
-    db: 'mongodb://localhost/spotted-io-development'
-    
+    port: 3000
   },
 
   test: {
     root: rootPath,
     app: {
-      name: 'spotted-io'
+      name: 'connected-board'
     },
-    port: 3000,
-    db: 'mongodb://localhost/spotted-io-test'
-    
+    port: 3000
   },
 
   production: {
     root: rootPath,
     app: {
-      name: 'spotted-io'
+      name: 'connected-board'
     },
-    port: 3000,
-    db: 'mongodb://localhost/spotted-io-production'
-    
+    port: 3000
   }
 };
 

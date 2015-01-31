@@ -23,5 +23,5 @@ io.on('connection', function (socket) {
 
 require('./config/express')(app, config);
 
-server.listen(3001);
-app.listen(config.port);
+server.listen(process.env.PORT || 5001);
+//app.listen(process.env.PORT || 5000);

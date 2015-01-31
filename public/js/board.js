@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3001');
+var socket = io.connect('http://localhost:'+location.port);
 var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
 var uniqueId = randLetter + Date.now();
 var path;
