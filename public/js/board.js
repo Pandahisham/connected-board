@@ -19,6 +19,7 @@ socket.on('startDrawing', function(data){
   if(uniqueId != data.uid){
     console.log("Remote drawing started");
     createPath(new Point(data.point[1], data.point[2]));
+    paper.view.update();
   }
 });
 
@@ -26,6 +27,7 @@ socket.on('drawing', function(data){
   if(uniqueId != data.uid){
     console.log(data.point);
     addPoint(new Point(data.point[1], data.point[2]));
+    paper.view.update();
   }
 });
 
@@ -33,6 +35,7 @@ socket.on('stopDrawing', function(data){
   if(uniqueId != data.uid){
     console.log("Remote drawing stopped");
     endPath(data.point);
+    paper.view.update();
   }
 });
 
@@ -50,6 +53,7 @@ function addPoint(point) {
 function endPath(event) {
   var segmentCount = path.segments.length;
   path.simplify(10);
+  paper.view.update();
 }
 
 function onMouseDown(event) {
