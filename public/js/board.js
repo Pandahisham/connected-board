@@ -69,7 +69,7 @@ socket.on('stopDrawing', function(data){
 function createPath(uid, point, color) {
   alivePath[uid] = new Path({
     segments: [point],
-    strokeColor: sessionColor,
+    strokeColor: color,
   });
 }
 
