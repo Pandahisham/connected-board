@@ -18,6 +18,14 @@ io.on('connection', function (socket) {
   socket.on('stopDrawing', function (data) {
     io.sockets.emit('stopDrawing', {uid: data.uid});
   });
+
+  socket.on('undo', function (data) {
+    io.sockets.emit('undo', {uid: data.uid});
+  });
+});
+
+io.on('deconnection', function (socket){
+
 });
 
 require('./config/express')(app, config);
