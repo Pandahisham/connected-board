@@ -2,7 +2,6 @@ var express = require('express'),
   config = require('./config/config'),
   glob = require('glob');
 
-
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);

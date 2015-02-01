@@ -3,7 +3,7 @@ var alivePath = {};
 var donePath = [];
 var uniqueId = String.fromCharCode(65 + Math.floor(Math.random() * 26)) + Date.now();
 
-function createPath(uid, point, color) {
+function createPath(uid, point, color, size) {
   alivePath[uid] = new Path({
     segments: [point],
     strokeColor: color,
