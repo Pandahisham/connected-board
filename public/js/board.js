@@ -31,7 +31,7 @@ var donePath = [];
 var sessionColor = colors[Math.floor(Math.random()*colors.length)];
 
 function emitStartPath(point){
-  socket.emit('startDrawing', {uid: uniqueId, point: point});
+  socket.emit('startDrawing', {uid: uniqueId, point: point, color: sessionColor});
 }
 
 function emitPoint(point){
