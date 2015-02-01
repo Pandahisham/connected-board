@@ -103,3 +103,7 @@ socket.on('undo', function(data){
     paper.view.update();
   }
 });
+
+socket.on('artistCount', function(data){
+  $('#artistNumber').text(data.count);
+});

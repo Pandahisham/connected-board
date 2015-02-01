@@ -5,8 +5,12 @@ var express = require('express'),
 var app = express();
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
+var artistCount = 0;
 
 io.on('connection', function (socket) {
+  artistCount++;
+  io.sockets.emit('artistCount', {count: artistCount});
+
   socket.on('startDrawing', function (data) {
     io.sockets.emit('startDrawing', {uid: data.uid, point: data.point, color: data.color, size: data.size});
   });
@@ -22,10 +26,11 @@ io.on('connection', function (socket) {
   socket.on('undo', function (data) {
     io.sockets.emit('undo', {uid: data.uid});
   });
-});
 
-io.on('deconnection', function (socket){
-
+  socket.on('disconnect', function (){
+    artistCount--;
+    io.sockets.emit('artistCount', {count: artistCount});
+  });
 });
 
 require('./config/express')(app, config);
