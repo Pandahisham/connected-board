@@ -8,6 +8,7 @@
   ],
   "dependencies": {
     "jquery": "~2.1.1",
-    "paper": "~0.9.21"
+    "paper": "~0.9.21",
+    "minicolors": "~2.1.10"
   }
 }

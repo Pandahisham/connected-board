@@ -9,7 +9,7 @@ var io = require('socket.io')(server);
 
 io.on('connection', function (socket) {
   socket.on('startDrawing', function (data) {
-    io.sockets.emit('startDrawing', {uid: data.uid, point: data.point, color: data.color});
+    io.sockets.emit('startDrawing', {uid: data.uid, point: data.point, color: data.color, size: data.size});
   });
 
   socket.on('drawing', function(data){
