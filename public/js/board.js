@@ -28,6 +28,17 @@ function endPath(uid, event) {
   paper.view.update();
 }
 
+function addPath(historyEntry){
+  if( typeof donePath[historyEntry.uid] == 'undefined' ){
+    donePath[historyEntry.uid] = [];
+  }
+
+  var path = new Path(historyEntry.element[1]);
+  donePath[historyEntry.uid].push(path);
+
+  paper.view.update();
+}
+
 function undo(uid){
   if(donePath[uid].length > 0){
     donePath[uid][donePath[uid].length-1].remove();
@@ -69,7 +80,7 @@ function emitPoint(point){
 }
 
 function emitEndPath(){
-  socket.emit('stopDrawing', {uid: uniqueId});
+  socket.emit('stopDrawing', {uid: uniqueId, path: donePath[uniqueId][donePath[uniqueId].length-1]});
 }
 
 function emitUndo(uid){
@@ -101,6 +112,13 @@ socket.on('undo', function(data){
   if(uniqueId != data.uid){
     undo(data.uid);
     paper.view.update();
+  }
+});
+
+socket.on('history', function(data){
+  var history = data.board;
+  for(var i=0; i<history.length; ++i){
+    addPath(history[i]);
   }
 });
 

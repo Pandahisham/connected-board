@@ -8,7 +8,8 @@ var config = {
     app: {
       name: 'connected-board'
     },
-    port: 3000
+    port: 3000,
+    db: 'mongodb://localhost/connected-board-development'
   },
 
   test: {
@@ -16,7 +17,8 @@ var config = {
     app: {
       name: 'connected-board'
     },
-    port: 3000
+    port: 3000,
+    db: 'mongodb://localhost/connected-board-development'
   },
 
   production: {
@@ -24,7 +26,8 @@ var config = {
     app: {
       name: 'connected-board'
     },
-    port: 3000
+    port: 3000,
+    db: 'mongodb://localhost/connected-board-development'
   }
 };
 
