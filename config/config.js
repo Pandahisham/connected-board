@@ -27,7 +27,7 @@ var config = {
       name: 'connected-board'
     },
     port: 3000,
-    db: 'mongodb://localhost/connected-board-development'
+    db: process.env.PROD_MONGODB
   }
 };
 
