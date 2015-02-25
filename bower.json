@@ -9,6 +9,10 @@
   "dependencies": {
     "jquery": "~2.1.1",
     "paper": "~0.9.21",
-    "minicolors": "~2.1.10"
+    "minicolors": "~2.1.10",
+    "bootstrap": "~3.3.2",
+    "fontawesome": "~4.3.0",
+    "seiyria-bootstrap-slider": "~4.5.0",
+    "spectrum": "~1.6.1"
   }
 }
