@@ -8,19 +8,18 @@
     <script src="/components/jquery/dist/jquery.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="/components/paper/dist/paper-full.js"></script>
-    <script src="/components/minicolors/jquery.minicolors.js"></script>
     <script src="/components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/components/spectrum/spectrum.js"></script>
+    <script src="/components/seiyria-bootstrap-slider/js/bootstrap-slider.js"></script>
     <script type="text/paperscript" src="/js/board.js" canvas="canvas" ></script>
-
     <script src="/js/main.js"></script>
 
     <link rel="stylesheet" href="/components/fontawesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="/components/spectrum/spectrum.css">
+    <link rel="stylesheet" href="/components/seiyria-bootstrap-slider/css/bootstrap-slider.css">
     <link rel="stylesheet" href="/css/simple-sidebar.css">
     <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/components/minicolors/jquery.minicolors.css">
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -29,16 +28,16 @@
       </div>
       <a class="navbar-brand" href="#">Connected Board</a>
     </nav>
-    <div id="wrapper"> <!--class="toggled"-->
+    <div id="wrapper" class="toggled">
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li>
                     <a href="#" role="button" class="widget-toggle">Brush color <span class="fa fa-chevron-down"></span></a>
                     <div class="sidebar-widget" hidden>
                       <ul class="color-selector">
-                        <li class="toggled"><div class="color" style="background-color: #181818"></div><span>#181818</span></li>
-                        <li><div class="color" style="background-color: #252525"></div><span>#252525</span></li>
-                        <li><div class="color" style="background-color: #d6d6d6"></div><span>#d6d6d6</span></li>
+                        <li class="toggled"><div class="color" style="background-color: #000000"></div><span>#000000</span></li>
+                        <li><div class="color" style="background-color: #D15C5C"></div><span>#D15C5C</span></li>
+                        <li><div class="color" style="background-color: #33CC33"></div><span>#33CC33</span></li>
                       </ul>
                       <button type="button" class="btn btn-success navbar-btn" id="addColor">New color</button>
                     </div>
@@ -46,12 +45,12 @@
                 <li>
                     <a href="#" class="widget-toggle">Brush size <span class="fa fa-chevron-down"></span></a>
                     <div class="sidebar-widget" hidden>
-                      <span>Widget</span>
+                      <input type="text" class="slider brushSize"></input>
                     </div>
                 </li>
-                <li>
+                <!--<li>
                     <a href="#">Undo <span class="fa fa-undo"></span></a>
-                </li>
+                </li>-->
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -74,6 +73,15 @@
     <!-- /#wrapper -->
 
     <script>
+    $("input.slider").slider({
+      min: 1,
+      max: 15,
+      value: 5,
+      tooltip:"hide"
+    });
+
+
+
     $("#menu-toggle").click(function(e) {
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");

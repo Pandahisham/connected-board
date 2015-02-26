@@ -48,7 +48,7 @@ function undo(uid){
 }
 
 function onMouseDown(event) {
-  createPath(uniqueId, event.point, $('#color').val(), $('#size').val());
+  createPath(uniqueId, event.point, $('#sidebar-wrapper > ul > li> div > ul > li.toggled > span').html(), $('.brushSize').slider('getValue'));
   emitStartPath(event.point);
 }
 
